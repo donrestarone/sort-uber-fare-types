@@ -146,9 +146,14 @@ fare_prices.each do |price|
     end 
 end 
 
-# p sorted_prices_ridetypes_uber
+ puts sorted_prices_ridetypes_uber
 
-# data[:uber].each do |fare|
-    
 
+
+
+# data[:lyft].each do |hash|
+#     if hash[:fare] != nil
+#         p hash[:fare]
+#     end
 # end
+
