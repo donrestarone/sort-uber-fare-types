@@ -1,3 +1,4 @@
+
 data = {
     "uber": [
         {
@@ -110,6 +111,9 @@ data = {
 }
 
 
+
+
+
 uber_fare_types = [] # sorted arrays of options
 #p data[:uber].class
 
@@ -135,18 +139,28 @@ fare_prices = fare_prices.sort{|x,y| x <=> y}
 
 sorted_prices_ridetypes_uber = []
 
+##sort the prices with their matching type and replace "POOL" with "UberPool"
 fare_prices.each do |price|
     data[:uber].each do |fare|
+        if fare[:type] == "POOL"
+            fare[:type] = "UberPool"
+        end
         if fare[:fare] == price
             ride = Hash.new
             ride[:type] = fare[:type]
             ride[:price] = fare[:fare]
+            ride[:distance] = fare[:distance]
+            ride[:currency] = fare[:currency]
+            ride[:duration] = fare[:duration] 
+            #ride[:]
             sorted_prices_ridetypes_uber.push(ride)
         end
+        
     end 
+
 end 
 
- puts sorted_prices_ridetypes_uber
+puts sorted_prices_ridetypes_uber
 
 
 
